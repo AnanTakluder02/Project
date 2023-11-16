@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,7 +22,7 @@ public class Driver {
 	        
 	        int choice;
 
-	        while(true) {
+	        do {
 	            System.out.println("\nWelcome To Ecobar's Management System Menu:");
 	            System.out.println("1. Add Medicine");
 	            System.out.println("2. Purchase Non Addictive Drugs");
@@ -63,12 +64,15 @@ public class Driver {
 
 	            }
 	            handleInput(choice);
+	            scanner.close();
 	        }catch(MadeupException e){
                 System.out.println(e.getMessage());
-            
-        }
+            }catch(InputMismatchException e){
+                System.out.println(e.getMessage());
+            }
 
-	        }
+	        } while (choice != 4);
+	        scanner.close();
 
 	      
 	    }
@@ -81,8 +85,8 @@ public class Driver {
 
 
 		 public static void handleInput(Integer choice) throws MadeupException {
-		        if (!choice.equals(1) || !choice.equals(2) || !choice.equals(3) || !choice.equals(4) ) {
-		            throw new MadeupException("Invalid input. Please input from the mentioned no."); 
+		        if (choice!=1 || choice!=2 || choice!=3 || choice!=4 ) {
+		            throw new MadeupException("Invalid number input. Please input from the mentioned numbers"); 
 		        }  
 		    }
 
