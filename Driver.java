@@ -1,12 +1,11 @@
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 public class Driver {
 
 	  
-		public static void main(String[] args) throws MadeupException {
+		public static void main(String[] args) {
 	        PharmacyManagementSystem pharmacySystem = new PharmacyManagementSystem();
 	        Scanner scanner = new Scanner(System.in);
 	        
@@ -23,16 +22,16 @@ public class Driver {
 	        int choice;
 
 	        do {
-	            System.out.println("\nWelcome To Ecobar's Management System Menu:");
+	            System.out.println("\nWlcome To Ecobar's Management System Menu:");
 	            System.out.println("1. Add Medicine");
 	            System.out.println("2. Purchase Non Addictive Drugs");
 	            System.out.println("3. Display Medicines");
 	            System.out.println("4. Exit");
-	            System.out.print("Enter your choice from above mentioned no.: ");
+	            System.out.print("Enter your choice: ");
 
 	            choice = scanner.nextInt();
-	            scanner.nextLine();
-	            try {
+	            scanner.nextLine(); 
+
 	            switch (choice) {
 	                case 1:
 	                    System.out.print("Enter Medicine Name: ");
@@ -61,34 +60,19 @@ public class Driver {
 	                    System.out.println("Exiting Pharmacy Management System. Goodbye!");
 	                    break;
 
-
+	                default:
+	                    System.out.println("Invalid choice. Please enter a valid option.");
 	            }
-	            handleInput(choice);
-	            scanner.close();
-	        }catch(MadeupException e){
-                System.out.println(e.getMessage());
-            }catch(InputMismatchException e){
-                System.out.println(e.getMessage());
-            }
 
 	        } while (choice != 4);
-	        scanner.close();
 
-	      
+	        scanner.close();
 	    }
 		else
 		{System.out.println("Access Denied!\nIm not saying anything without my lawyer present!");
 	}
 	        
 		}
-
-
-
-		 public static void handleInput(Integer choice) throws MadeupException {
-		        if (choice!=1 || choice!=2 || choice!=3 || choice!=4 ) {
-		            throw new MadeupException("Invalid number input. Please input from the mentioned numbers"); 
-		        }  
-		    }
 
 }
 
