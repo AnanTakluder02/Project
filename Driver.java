@@ -82,7 +82,7 @@ public class Driver {
 
 		 public static void handleInput(Integer choice) throws MadeupException {
 		        if (!choice.equals(1) || !choice.equals(2) || !choice.equals(3) || !choice.equals(4) ) {
-		            throw new MadeupException("Invalid input. Please input from the mentioned letters"); 
+		            throw new MadeupException("Invalid input. Please input from the mentioned no."); 
 		        }  
 		    }
 
