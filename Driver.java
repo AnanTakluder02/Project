@@ -1,14 +1,20 @@
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Scanner;
 
 public class Driver {
 
-	  
+	
+	
+	
 		public static void main(String[] args) {
 	        PharmacyManagementSystem pharmacySystem = new PharmacyManagementSystem();
 	        Scanner scanner = new Scanner(System.in);
 	        
+	        
+	        Medicine oxy = new Medicine("oxycotin",100,15);
+	        Medicine vic = new Medicine("vicodin",200,20);
+	        pharmacySystem.addMedicine(oxy);
+	        pharmacySystem.addMedicine(vic);
 	        
 	        String admin = "Senor Kazi Escobar";
 	        int pass1 = 1122;
@@ -24,7 +30,7 @@ public class Driver {
 	        do {
 	            System.out.println("\nWlcome To Ecobar's Management System Menu:");
 	            System.out.println("1. Add Medicine");
-	            System.out.println("2. Purchase Non Addictive Drugs");
+	            System.out.println("2. Purchase Medicine");
 	            System.out.println("3. Display Medicines");
 	            System.out.println("4. Exit");
 	            System.out.print("Enter your choice: ");
