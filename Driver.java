@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Driver {
 
 	  
-		public static void main(String[] args) {
+		public static void main(String[] args) throws MadeupException {
 	        PharmacyManagementSystem pharmacySystem = new PharmacyManagementSystem();
 	        Scanner scanner = new Scanner(System.in);
 	        
@@ -21,17 +21,17 @@ public class Driver {
 	        
 	        int choice;
 
-	        do {
-	            System.out.println("\nWlcome To Ecobar's Management System Menu:");
+	        while(true) {
+	            System.out.println("\nWelcome To Ecobar's Management System Menu:");
 	            System.out.println("1. Add Medicine");
 	            System.out.println("2. Purchase Non Addictive Drugs");
 	            System.out.println("3. Display Medicines");
 	            System.out.println("4. Exit");
-	            System.out.print("Enter your choice: ");
+	            System.out.print("Enter your choice from above mentioned no.: ");
 
 	            choice = scanner.nextInt();
-	            scanner.nextLine(); 
-
+	            scanner.nextLine();
+	            try {
 	            switch (choice) {
 	                case 1:
 	                    System.out.print("Enter Medicine Name: ");
@@ -60,19 +60,31 @@ public class Driver {
 	                    System.out.println("Exiting Pharmacy Management System. Goodbye!");
 	                    break;
 
-	                default:
-	                    System.out.println("Invalid choice. Please enter a valid option.");
+
 	            }
+	            handleInput(choice);
+	        }catch(MadeupException e){
+                System.out.println(e.getMessage());
+            
+        }
 
-	        } while (choice != 4);
+	        }
 
-	        scanner.close();
+	      
 	    }
 		else
 		{System.out.println("Access Denied!\nIm not saying anything without my lawyer present!");
 	}
 	        
 		}
+
+
+
+		 public static void handleInput(Integer choice) throws MadeupException {
+		        if (!choice.equals(1) || !choice.equals(2) || !choice.equals(3) || !choice.equals(4) ) {
+		            throw new MadeupException("Invalid input. Please input from the mentioned letters"); 
+		        }  
+		    }
 
 }
 
